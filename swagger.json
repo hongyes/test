@@ -1,0 +1,196 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "No description provided for this web service.\n",
+        "version": "2.0",
+        "title": "API Documentation for Experiment created on 12/17/2014"
+    },
+    "host": "ussouthcentral.services.azureml-int.net",
+    "basePath": "/workspaces/f0915f54cbe04af98edf6d7610c62c08/services/3bea04955c024fab9f589102041e861c",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/execute": {
+            "post": {
+                "summary": "Request Response API Documentation for Experiment created on 12/17/2014",
+                "description": "No description provided for this web service.",
+                "operationId": "execute",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "api-version",
+                        "type": "string",
+                        "description": "API version",
+                        "required": true,
+                        "default": 2
+                    },
+                    {
+                        "in": "query",
+                        "name": "details",
+                        "type": "boolean",
+                        "description": "Show details",
+                        "required": false
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Updated user object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ScoreRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Score results",
+                        "schema": {
+                            "$ref": "#/definitions/ScoreResults"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "api_key": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "For example: Bearer abc123"
+        }
+    },
+    "definitions": {
+        "ScoreRequest": {
+            "properties": {
+                "Data": {
+                    "$ref": "#/definitions/ScoreData"
+                },
+                "GlobalParameters": {
+                    "$ref": "#/definitions/GlobalParameters"
+                }
+            }
+        },
+        "ScoreData": {
+            "properties": {
+                "Values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InputVector"
+                    }
+                }
+            }
+        },
+        "GlobalParameters": {
+            "properties": {
+                "Random seed": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "InputVector": {
+            "properties": {
+                "c0": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Class"
+                },
+                "c1": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "sepal-length"
+                },
+                "c2": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "sepal-width"
+                },
+                "c3": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "petal-length"
+                },
+                "c4": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "petal-width"
+                }
+            }
+        },
+        "ScoreResults": {
+            "properties": {
+                "Results": {
+                    "$ref": "#/definitions/ScoreResult"
+                }
+            }
+        },
+        "ScoreResult": {
+            "properties": {
+                "output1": {
+                    "$ref": "#/definitions/Output1"
+                }
+            }
+        },
+        "Output1": {
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Output1Vector"
+                    }
+                }
+            }
+        },
+        "Output1Vector": {
+            "properties": {
+                "c0": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Class"
+                },
+                "c1": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "sepal-length"
+                },
+                "c2": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "sepal-width"
+                },
+                "c3": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "petal-length"
+                },
+                "c4": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "petal-width"
+                }
+            }
+        }
+    }
+}
